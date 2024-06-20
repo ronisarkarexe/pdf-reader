@@ -7,15 +7,7 @@ const PdfComponent = () => {
   const [file, setFile] = useState("");
   const [files, setFiles] = useState<PdfFile[]>([]);
 
-  useEffect(() => {
-    const getPdf = async () => {
-      const result = await axios.get("http://localhost:8000/get-files");
-      if (result) {
-        setFiles(result.data.data);
-      }
-    };
-    getPdf();
-  }, []);
+ 
 
   const submitPdf = async (event) => {
     event.preventDefault();
@@ -31,7 +23,6 @@ const PdfComponent = () => {
   return (
     <div>
       <form onSubmit={submitPdf}>
-        <h3>Upload pdf.</h3>
         <input
           type="file"
           placeholder="Title"

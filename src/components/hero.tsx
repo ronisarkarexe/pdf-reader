@@ -1,9 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
+import FileUploader from "./file_uploader";
 
 export default function HeroSection() {
   return (
-    <section className="bg-gray-50">
+    <section className="">
       <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-2/6 lg:items-center">
         <div className="mx-auto max-w-xl text-center">
           <motion.h1
@@ -28,8 +29,7 @@ export default function HeroSection() {
             PDF Reader is free open-source application, that help you read pdf
             like book!
           </motion.p>
-
-          {/* Something come here */}
+          <FileUploader />
         </div>
       </div>
     </section>
