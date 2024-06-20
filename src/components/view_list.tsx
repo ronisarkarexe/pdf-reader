@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import { PdfFile } from "@/model/pdffile";
 import axios from "axios";
 import { FileText } from "lucide-react";
+import { pdfName, timestamp } from "./utils";
 
-const ViewListFile = () => {
+const ViewListFile = (props: { isUpdate: boolean }) => {
   const [files, setFiles] = useState<PdfFile[]>([]);
   useEffect(() => {
     const getPdf = async () => {
@@ -15,7 +16,9 @@ const ViewListFile = () => {
       }
     };
     getPdf();
-  }, []);
+  }, [props.isUpdate]);
+
+  console.log(files);
 
   return (
     <div className="px-10 mb-10">
@@ -40,9 +43,9 @@ const ViewListFile = () => {
           >
             <div className="flex gap-2">
               {" "}
-              <FileText className="w-5 h-5" /> <h4> {file.pdf} </h4>{" "}
+              <FileText className="w-5 h-5" /> <h4> {pdfName(file.pdf)} </h4>{" "}
             </div>
-            <h3>Created By: {file.createdAt}</h3>
+            <h3>Created At: {timestamp(file.createdAt)}</h3>
           </motion.div>
         ))
       ) : (

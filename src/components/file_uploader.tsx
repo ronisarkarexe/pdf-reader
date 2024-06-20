@@ -4,20 +4,24 @@ import { motion } from "framer-motion";
 import { CloudUpload } from "lucide-react";
 import axios from "axios";
 
-const FileUploader = () => {
+const FileUploader = (props: { setIsUpdate: (value: boolean) => void }) => {
   const [file, setFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
 
   const submitPdf = async (file) => {
     setIsUploading(true);
+    props.setIsUpdate(true);
     const formData = new FormData();
     formData.append("file", file);
-    await axios.post("http://localhost:8000/upload-pdf", formData, {
+    const res = await axios.post("http://localhost:8000/upload-pdf", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     });
-    setIsUploading(false);
+    if (res) {
+      setIsUploading(false);
+      props.setIsUpdate(false);
+    }
   };
 
   const handleFileChange = async (event) => {

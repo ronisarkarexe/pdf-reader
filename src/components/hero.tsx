@@ -2,7 +2,9 @@
 import { motion } from "framer-motion";
 import FileUploader from "./file_uploader";
 
-export default function HeroSection() {
+export default function HeroSection(props: {
+  setIsUpdate: (value: boolean) => void;
+}) {
   return (
     <section className="">
       <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-2/6 lg:items-center">
@@ -29,7 +31,7 @@ export default function HeroSection() {
             PDF Reader is free open-source application, that help you read pdf
             like book!
           </motion.p>
-          <FileUploader />
+          <FileUploader setIsUpdate={props.setIsUpdate} />
         </div>
       </div>
     </section>

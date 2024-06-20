@@ -1,13 +1,11 @@
 import HeaderPage from "@/components/header";
-import HeroSection from "@/components/hero";
-import ViewListFile from "@/components/view_list";
+import HomeComponent from "@/components/home_component";
 
 export default function Home() {
   return (
     <div>
       <HeaderPage />
-      <HeroSection />
-      <ViewListFile />
+      <HomeComponent />
     </div>
   );
 }
