@@ -5,7 +5,7 @@ import { PdfFile } from "@/model/pdffile";
 import { pdfjs } from "react-pdf";
 import { Editor } from "reactjs-editor";
 import * as cheerio from "cheerio";
-import { Bookmark, MoveLeft } from "lucide-react";
+import { Bookmark, BookmarkCheck, MoveLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
@@ -15,17 +15,19 @@ const ViewPage = ({ params }: { params: { id: string } }) => {
   const { id } = params;
   const router = useRouter();
 
-  const [files, setFiles] = useState<PdfFile | null>(null);
+  const [file, setFiles] = useState<PdfFile | null>(null);
   const [fileLink, setFileLink] = useState<string>("");
   const [context, setContext] = useState("");
   const [contextTitle, setContextTitle] = useState("");
+  const [bookmarkUpdate, setBookmarkUpdate] = useState(false);
 
   useEffect(() => {
     const getPdf = async () => {
       try {
         const response = await axios.get(`http://localhost:8000/pdf/${id}`);
         if (response.status === 200) {
-          const { title, paragraphs } = parseHtmlContent(response.data.data);
+          const { title, paragraphs } = parseHtmlContent(response?.data?.data);
+          setFiles(response?.data?.file);
           setContextTitle(title);
           setContext(paragraphs);
         } else {
@@ -37,7 +39,25 @@ const ViewPage = ({ params }: { params: { id: string } }) => {
     };
 
     getPdf();
-  }, [id]);
+  }, [id, bookmarkUpdate]);
+
+  const updateBookmark = async (id: string, isBookmark: boolean) => {
+    try {
+      setBookmarkUpdate(true);
+      const response = await axios.patch(
+        `http://localhost:8000/bookmark/${id}`,
+        { isBookmark }
+      );
+      console.log("Bookmark updated:", response.data);
+      if (response.data) {
+        setBookmarkUpdate(false);
+      }
+      return response.data;
+    } catch (error: unknown) {
+      console.log(error as unknown);
+      throw error;
+    }
+  };
 
   const parseHtmlContent = (html: string) => {
     const $ = cheerio.load(html);
@@ -72,7 +92,14 @@ const ViewPage = ({ params }: { params: { id: string } }) => {
         </motion.div>
 
         <div className="ml-5 cursor-pointer text-blue-500">
-          <Bookmark className="h-5 w-5" />
+          {!file?.isBookmark ? (
+            <Bookmark
+              className="h-5 w-5"
+              onClick={() => updateBookmark(id, true)}
+            />
+          ) : (
+            <BookmarkCheck onClick={() => updateBookmark(id, false)} />
+          )}
         </div>
       </div>
 
