@@ -5,6 +5,7 @@ import { PdfFile } from "@/model/pdffile";
 import axios from "axios";
 import { FileText } from "lucide-react";
 import { pdfName, timestamp } from "./utils";
+import Link from "next/link";
 
 const ViewListFile = (props: { isUpdate: boolean }) => {
   const [files, setFiles] = useState<PdfFile[]>([]);
@@ -17,8 +18,6 @@ const ViewListFile = (props: { isUpdate: boolean }) => {
     };
     getPdf();
   }, [props.isUpdate]);
-
-  console.log(files);
 
   return (
     <div className="px-10 mb-10">
@@ -33,20 +32,25 @@ const ViewListFile = (props: { isUpdate: boolean }) => {
 
       {files.length > 0 ? (
         files.map((file) => (
-          <motion.div
-            key={file._id}
-            className="text-sm text-blue-500 ml-10 mr-10 mt-3 flex items-center justify-between border border-gray-300 px-6 py-3 rounded-md cursor-pointer"
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileHover={{ x: 10 }}
-            transition={{ type: "spring", damping: 18, mass: 0.75 }}
-          >
-            <div className="flex gap-2">
-              {" "}
-              <FileText className="w-5 h-5" /> <h4> {pdfName(file.pdf)} </h4>{" "}
-            </div>
-            <h3>Created At: {timestamp(file.createdAt)}</h3>
-          </motion.div>
+          <div key={file._id}>
+            <Link href={"/view/" + file._id}>
+              <motion.div
+                key={file._id}
+                className="text-sm text-blue-500 ml-10 mr-10 mt-3 flex items-center justify-between border border-gray-300 px-6 py-3 rounded-md cursor-pointer"
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ x: 10 }}
+                transition={{ type: "spring", damping: 18, mass: 0.75 }}
+              >
+                <div className="flex gap-2">
+                  {" "}
+                  <FileText className="w-5 h-5" />{" "}
+                  <h4> {pdfName(file.pdf)} </h4>{" "}
+                </div>
+                <h3>Created At: {timestamp(file.createdAt)}</h3>
+              </motion.div>
+            </Link>
+          </div>
         ))
       ) : (
         <motion.div
