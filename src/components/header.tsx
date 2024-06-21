@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { Notebook } from "lucide-react";
 import Link from "next/link";
 
 const Header = () => {
@@ -13,6 +14,18 @@ const Header = () => {
       >
         <h1>PDF Reader</h1>
       </motion.div>
+
+      <Link href={"/bookmark"}>
+        <motion.div
+          className="flex items-center gap-2 cursor-pointer"
+          transition={{ type: "spring", damping: 18, mass: 0.75 }}
+          initial={{ opacity: 0, x: -1000 }}
+          animate={{ opacity: 1, x: 0 }}
+        >
+          <Notebook />
+          <h1>BookMarked</h1>
+        </motion.div>
+      </Link>
 
       <motion.div
         className="flex items-center"

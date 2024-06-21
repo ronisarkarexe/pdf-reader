@@ -1,31 +1,31 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import ViewComponent from "@/components/view/view_component";
 import { PdfFile } from "@/model/pdffile";
 import axios from "axios";
-import ViewComponent from "./view/view_component";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-const ViewListFile = (props: { isUpdate: boolean }) => {
+const BookMarkPage = () => {
   const [files, setFiles] = useState<PdfFile[]>([]);
   useEffect(() => {
     const getPdf = async () => {
-      const result = await axios.get("http://localhost:8000/get-files");
+      const result = await axios.get("http://localhost:8000/bookmarks");
       if (result) {
         setFiles(result.data.data);
       }
     };
     getPdf();
-  }, [props.isUpdate]);
+  }, []);
 
   return (
-    <div className="px-10 mb-10">
+    <div className="px-10 my-10 ">
       <motion.h6
         className="text-sm text-blue-500 font-bold"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", damping: 18, mass: 0.75 }}
       >
-        <span>List of PDF:-</span>
+        <span>List of BookMark:-</span>
       </motion.h6>
 
       {files.length > 0 ? (
@@ -41,11 +41,11 @@ const ViewListFile = (props: { isUpdate: boolean }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", damping: 18, mass: 0.75 }}
         >
-          No PDF list available!{" "}
+          No BookMarked PDF available!{" "}
         </motion.div>
       )}
     </div>
   );
 };
 
-export default ViewListFile;
+export default BookMarkPage;
