@@ -18,7 +18,7 @@ const ViewListFile = (props: { isUpdate: boolean }) => {
   }, [props.isUpdate]);
 
   return (
-    <div className="px-10 mb-10">
+    <div className="px-3 mb-10 md:px-10">
       <motion.h6
         className="text-sm text-blue-500 font-bold"
         initial={{ opacity: 0, y: 100 }}

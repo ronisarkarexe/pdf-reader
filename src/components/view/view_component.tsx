@@ -10,7 +10,7 @@ const ViewComponent = (props: { file: PdfFile }) => {
     <Link href={"/view/" + props.file._id}>
       <motion.div
         key={props.file._id}
-        className="text-sm text-blue-500 ml-10 mr-10 mt-3 flex items-center justify-between border border-gray-300 px-6 py-3 rounded-md cursor-pointer"
+        className="text-sm text-blue-500 ml-3 md:ml-10 mr-3 md:mr-10 mt-3 flex items-center justify-between border border-gray-300 px-3 md:px-6 py-3 rounded-md cursor-pointer flex-wrap"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         whileHover={{ x: 10 }}
@@ -18,9 +18,12 @@ const ViewComponent = (props: { file: PdfFile }) => {
       >
         <div className="flex gap-2">
           {" "}
-          <FileText className="w-5 h-5" /> <h4> {pdfName(props.file.pdf)} </h4>{" "}
+          <FileText className="w-5 h-5" />{" "}
+          <h4 className="text-xs md:text-base"> {pdfName(props.file.pdf)} </h4>{" "}
         </div>
-        <h3>Created At: {timestamp(props.file.createdAt)}</h3>
+        <h3 className="text-xs md:text-base">
+          Created At: {timestamp(props.file.createdAt)}
+        </h3>
       </motion.div>
     </Link>
   );

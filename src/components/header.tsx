@@ -23,7 +23,7 @@ const Header = () => {
           animate={{ opacity: 1, x: 0 }}
         >
           <Notebook />
-          <h1>BookMarked</h1>
+          <h1 className="hidden md:block">BookMarked</h1>
         </motion.div>
       </Link>
 

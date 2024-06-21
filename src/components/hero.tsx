@@ -8,7 +8,7 @@ export default function HeroSection(props: {
 }) {
   return (
     <section className="">
-      <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-2/6 lg:items-center">
+      <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-1/5 md:lg:h-2/6 lg:items-center">
         <div className="mx-auto max-w-xl text-center">
           <motion.h1
             className="text-3xl font-extrabold sm:text-5xl text-blue-500"
@@ -34,7 +34,7 @@ export default function HeroSection(props: {
           </motion.span>
           <FileUploader setIsUpdate={props.setIsUpdate} />
 
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap">
             <motion.div
               className="flex items-center gap-2 mt-2"
               initial={{ opacity: 0, x: -100 }}

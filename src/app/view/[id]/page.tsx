@@ -78,10 +78,10 @@ const ViewPage = ({ params }: { params: { id: string } }) => {
   }
 
   return (
-    <div className="h-max mx-10 mt-5">
-      <div className="flex items-center justify-between">
+    <div className="h-max mx-3 md:mx-10 mt-5">
+      <div className="flex items-center justify-between border border-blue-300 shadow-sm rounded-md px-2 md:px-4">
         <motion.div
-          className="text-blue-500 flex items-center gap-2 border-blue-400 px-7 py-3 rounded-sm cursor-pointer"
+          className="text-blue-500 flex items-center gap-2 border-blue-400 px-3 md:px-7 py-2 md:py-3 rounded-sm cursor-pointer"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           whileHover={{ x: -10 }}
@@ -104,18 +104,18 @@ const ViewPage = ({ params }: { params: { id: string } }) => {
       </div>
 
       <motion.div
-        className="mb-10"
+        className="mb-4 md:mb-10"
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", damping: 18, mass: 0.75 }}
       >
         <Editor
           htmlContent={`
-        <main className="p-5 bg-gray-300 rounded-md mt-5">
+        <main className="p-3 md:p-5 bg-gray-300 rounded-md mt-5">
     <aside>
-    <h1 className="text-center mt-5 mb-1">${contextTitle} </h1>
-    <h6 className="text-center text-sm mb-3"> By ${contextTitle} </h6>
-    <div>${context}</div>
+    <h1 className="text-center mt-5 mb-1 text-xs md:text-sm">${contextTitle} </h1>
+    <h6 className="text-center text-xs mb-3"> By ${contextTitle} </h6>
+    <div className="text-xs md:text-sm">${context}</div>
     </aside>
         </main>
       `}
