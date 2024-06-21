@@ -28,7 +28,7 @@ const BookMarkPage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", damping: 18, mass: 0.75 }}
       >
-        <span className="text-center text-2xl">BookMark List</span>
+        <span className="text-center text-2xl">Bookmark List</span>
       </motion.h6>
       <motion.div
         className="text-sm text-blue-500 font-bold "
