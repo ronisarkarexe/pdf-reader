@@ -18,7 +18,7 @@ const ViewComponent = (props: { file: PdfFile }) => {
       >
         <div className="flex gap-2">
           {" "}
-          <FileText className="w-5 h-5" />{" "}
+          <FileText className="h-3 w-3 md:h-5 md:w-5" />{" "}
           <h4 className="text-xs md:text-base"> {pdfName(props.file.pdf)} </h4>{" "}
         </div>
         <h3 className="text-xs md:text-base">
