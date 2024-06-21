@@ -8,7 +8,7 @@ Instructions on setting up your project locally.
 
 - Clone this repository
 ```sh
-   https://github.com/ronisarkarexe/pdf-viewer.git
+   https://github.com/ronisarkarexe/pdf-reader.git
 ```
 
 ### After cloning let's run the project.
