@@ -31,15 +31,15 @@ const BookMarkPage = () => {
         <span className="text-center text-2xl">BookMark List</span>
       </motion.h6>
       <motion.div
-        className="text-sm text-blue-500 font-bold"
+        className="text-sm text-blue-500 font-bold "
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         whileHover={{ x: 10 }}
         transition={{ type: "spring", damping: 18, mass: 0.75 }}
       >
-        <div className="flex items-center justify-between mt-4 text-blue-400">
+        <div className="flex items-center justify-between mt-4">
           <span
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer bg-yellow-500 text-black"
             onClick={() => router.back()}
           >
             <MoveLeft className="h-4 w-4 md:h-5 md:w-5" />
