@@ -25,5 +25,7 @@ Instructions on setting up your project locally.
 ### Happy Coding...!
 
 https://johnfactotum.github.io/foliate/
+
 https://pspdfkit.com/getting-started/web/?frontend=vanillajs&download=npm&integration=module
+
 https://www.npmjs.com/package/pdfkit
