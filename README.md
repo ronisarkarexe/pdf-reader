@@ -19,3 +19,5 @@ Instructions on setting up your project locally.
 - Run the app using `npm run dev`
 
 ### Happy Coding...!
+
+https://johnfactotum.github.io/foliate/
