@@ -23,8 +23,7 @@ Instructions on setting up your project locally.
 - Run the app using `npm run dev`
 
 ### Happy Coding...!
-<<<<<<< HEAD
 
 https://johnfactotum.github.io/foliate/
-=======
->>>>>>> 522885ebee490fd5aeca841f0f8f4eabc7d09ba0
+https://pspdfkit.com/getting-started/web/?frontend=vanillajs&download=npm&integration=module
+https://www.npmjs.com/package/pdfkit
