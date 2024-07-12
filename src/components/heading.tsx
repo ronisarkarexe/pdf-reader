@@ -7,7 +7,7 @@ import { useState } from "react";
 export const Heading = () => {
   const [isLoading, setIsLoading] = useState(false);
   return (
-    <div className="max-w-3xl space-y-4">
+    <div className="max-w-3xl space-y-4 pt-40">
       <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
         Your ideas, Documents, & Plans. Welcome to{" "}
         <span className="underline">AI PDF</span>

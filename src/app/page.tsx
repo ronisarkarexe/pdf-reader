@@ -3,6 +3,7 @@ import HeaderPage from "@/components/header";
 import { Heading } from "@/components/heading";
 import { Heroes } from "@/components/heroes";
 import HomeComponent from "@/components/home_component";
+import { Navbar } from "@/components/navbar";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         className="flex flex-col items-center justify-center
     md:justify-start text-center gap-y-8 flex-1 px-6 pb-10 dark:bg-[#1F1F1F]"
       >
+        <Navbar />
         <Heading />
         {/* <FileUpload/> */}
         <Heroes />

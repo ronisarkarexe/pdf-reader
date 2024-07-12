@@ -19,8 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="h-full dark:bg-[#1F1F1F]">
-          <Navbar />
-          <main className="h-full pt-40">{children}</main>
+          <main className="h-full">{children}</main>
         </div>
       </body>
     </html>
