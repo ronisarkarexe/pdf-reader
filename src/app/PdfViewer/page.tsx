@@ -1,4 +1,5 @@
 "use client";
+import CustomePage from "@/components/pdf/customepdf";
 import { useEffect, useRef } from "react";
 
 const PdfViewerPage: React.FC = () => {
@@ -12,11 +13,27 @@ const PdfViewerPage: React.FC = () => {
         .then((PSPDFKit) => {
           PSPDFKit?.unload(container);
 
-          let toolbarItems = PSPDFKit.defaultToolbarItems;
-          let pagerIndex = toolbarItems.findIndex(
-            (item) => item.type === "pager"
+          let toolbarItems = PSPDFKit.defaultToolbarItems.filter(
+            (item) =>
+              item.type !== "pager" &&
+              item.type !== "select-multiple-annotations" &&
+              item.type !== "zoom-out" &&
+              item.type != "zoom-in" &&
+              item.type !== "sidebar-thumbnails" &&
+              item.type !== "sidebar-document-outline" &&
+              item.type !== "sidebar-annotations" &&
+              item.type !== "sidebar-bookmarks" &&
+              item.type !== "sidebar-signatures" &&
+              item.type !== "multi-annotations-selection" &&
+              item.type !== "image" &&
+              item.type !== "stamp"
           );
-          toolbarItems.splice(pagerIndex + 1, 0, { type: "layout-config" });
+
+          PSPDFKit?.defaultToolbarItems.map((item) => console.log(item));
+
+          toolbarItems.splice(toolbarItems.length, 0, {
+            type: "layout-config",
+          });
 
           PSPDFKit.load({
             container,
@@ -24,7 +41,9 @@ const PdfViewerPage: React.FC = () => {
             baseUrl: `${window.location.protocol}//${window.location.host}/`,
             styleSheets: ["./my-pspdfkit.css"],
             layoutMode: PSPDFKit.LayoutMode.DOUBLE,
+            toolbarPlacement: PSPDFKit.ToolbarPlacement.BOTTOM,
             toolbarItems: toolbarItems,
+            theme: PSPDFKit.Theme.DARK,
           })
             .then((instance) => {
               instance.addEventListener(
@@ -65,7 +84,9 @@ const PdfViewerPage: React.FC = () => {
     };
   }, []);
 
-  return <div ref={containerRef} style={{ height: "100vh" }} />;
+  return <div>
+    <CustomePage/>
+  </div>;
 };
 
 export default PdfViewerPage;

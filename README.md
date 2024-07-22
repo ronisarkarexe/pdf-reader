@@ -29,3 +29,5 @@ https://johnfactotum.github.io/foliate/
 https://pspdfkit.com/getting-started/web/?frontend=vanillajs&download=npm&integration=module
 
 https://www.npmjs.com/package/pdfkit
+
+https://pspdfkit.com/guides/web/user-interface/create-a-toolbar/
