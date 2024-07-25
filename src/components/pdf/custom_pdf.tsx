@@ -12,7 +12,8 @@ const CustomePage: React.FC = () => {
         .then((PSPDFKit) => {
           PSPDFKit?.unload(container);
 
-          PSPDFKit?.defaultToolbarItems.map((item) => console.log(item));
+          // get all type of type of toolbar
+          // PSPDFKit?.defaultToolbarItems.map((item) => console.log(item));
 
           const customToolbarItems = [
             {
@@ -63,6 +64,7 @@ const CustomePage: React.FC = () => {
 
           PSPDFKit.load({
             container,
+            document: "/PSPDFKit_LightTheme.pdf",
             document: "/PSPDFKit_LightTheme.pdf",
             baseUrl: `${window.location.protocol}//${window.location.host}/`,
             layoutMode: PSPDFKit.LayoutMode.DOUBLE,
