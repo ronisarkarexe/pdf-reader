@@ -1,8 +1,6 @@
 import { Footer } from "@/components/footer";
-import HeaderPage from "@/components/header";
 import { Heading } from "@/components/heading";
 import { Heroes } from "@/components/heroes";
-import HomeComponent from "@/components/home_component";
 import { Navbar } from "@/components/navbar";
 
 export default function Home() {

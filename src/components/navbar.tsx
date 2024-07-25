@@ -1,20 +1,11 @@
 "use client";
-
-// import { useConvexAuth } from "convex/react";
-// import { useScrollTop } from "@/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
-// import { Logo } from "./logo";
-// import { ModeToggle } from "@/components/mode-toggle";
-// import { SignInButton, UserButton } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
-// import { Spinner } from "@/components/spinner";
 import Link from "next/link";
 import { useState } from "react";
 
 export function Navbar() {
   const [isLoading, setIsLoading] = useState(false);
-  //   const scrolled = useScrollTop();
-
   return (
     <div
       className={cn(
@@ -42,10 +33,8 @@ export function Navbar() {
             <Button variant="ghost" size="sm" asChild>
               <Link href="/documents">Enter Jotion</Link>
             </Button>
-            {/* <UserButton afterSignOutUrl="/" /> */}
           </>
         )}
-        {/* <ModeToggle /> */}
       </div>
     </div>
   );
