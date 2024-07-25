@@ -65,6 +65,7 @@ const CustomePage: React.FC = () => {
           PSPDFKit.load({
             container,
             document: "/PSPDFKit_LightTheme.pdf",
+            document: "/PSPDFKit_LightTheme.pdf",
             baseUrl: `${window.location.protocol}//${window.location.host}/`,
             layoutMode: PSPDFKit.LayoutMode.DOUBLE,
             toolbarPlacement: PSPDFKit.ToolbarPlacement.BOTTOM,
